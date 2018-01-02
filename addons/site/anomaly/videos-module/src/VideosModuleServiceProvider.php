@@ -1,6 +1,10 @@
 <?php namespace Anomaly\VideosModule;
 
 use Anomaly\Streams\Platform\Addon\AddonServiceProvider;
+use Anomaly\VideosModule\Category\Contract\CategoryRepositoryInterface;
+use Anomaly\VideosModule\Category\CategoryRepository;
+use Anomaly\Streams\Platform\Model\Videos\VideosCategoriesEntryModel;
+use Anomaly\VideosModule\Category\CategoryModel;
 use Anomaly\VideosModule\Series\Contract\SeriesRepositoryInterface;
 use Anomaly\VideosModule\Series\SeriesRepository;
 use Anomaly\Streams\Platform\Model\Videos\VideosSeriesEntryModel;
@@ -48,6 +52,9 @@ class VideosModuleServiceProvider extends AddonServiceProvider
      * @type array|null
      */
     protected $routes = [
+        'admin/videos/categories'           => 'Anomaly\VideosModule\Http\Controller\Admin\CategoriesController@index',
+        'admin/videos/categories/create'    => 'Anomaly\VideosModule\Http\Controller\Admin\CategoriesController@create',
+        'admin/videos/categories/edit/{id}' => 'Anomaly\VideosModule\Http\Controller\Admin\CategoriesController@edit',
         'admin/videos/series'           => 'Anomaly\VideosModule\Http\Controller\Admin\SeriesController@index',
         'admin/videos/series/create'    => 'Anomaly\VideosModule\Http\Controller\Admin\SeriesController@create',
         'admin/videos/series/edit/{id}' => 'Anomaly\VideosModule\Http\Controller\Admin\SeriesController@edit',
@@ -109,6 +116,7 @@ class VideosModuleServiceProvider extends AddonServiceProvider
      * @type array|null
      */
     protected $bindings = [
+        VideosCategoriesEntryModel::class => CategoryModel::class,
         VideosSeriesEntryModel::class => SeriesModel::class,
         VideosVideosEntryModel::class => VideoModel::class,
     ];
@@ -119,6 +127,7 @@ class VideosModuleServiceProvider extends AddonServiceProvider
      * @type array|null
      */
     protected $singletons = [
+        CategoryRepositoryInterface::class => CategoryRepository::class,
         SeriesRepositoryInterface::class => SeriesRepository::class,
         VideoRepositoryInterface::class => VideoRepository::class,
     ];

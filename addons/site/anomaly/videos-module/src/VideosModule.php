@@ -35,6 +35,11 @@ class VideosModule extends Module
                 'new_series',
             ],
         ],
+        'categories' => [
+            'buttons' => [
+                'new_category',
+            ],
+        ],
     ];
 
 }

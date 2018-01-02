@@ -7,4 +7,7 @@ return [
     'series' => [
         'title' => 'Series',
     ],
+    'categories' => [
+        'title' => 'Categories',
+    ],
 ];

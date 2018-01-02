@@ -17,4 +17,12 @@ return [
             'delete' => 'Can delete series?',
         ],
     ],
+    'categories' => [
+        'name'   => 'Categories',
+        'option' => [
+            'read'   => 'Can read categories?',
+            'write'  => 'Can create/edit categories?',
+            'delete' => 'Can delete categories?',
+        ],
+    ],
 ];

@@ -11,4 +11,9 @@ return [
         'write',
         'delete',
     ],
+    'categories' => [
+        'read',
+        'write',
+        'delete',
+    ],
 ];
